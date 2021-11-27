@@ -1,0 +1,56 @@
+import pytest
+from time import sleep
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.common.keys import Keys
+
+class TestAddStudent():
+
+  def test_addStudent(self):
+    self.driver = webdriver.Chrome()
+    self.driver.get("http://localhost/guni/main/")
+    self.driver.maximize_window()
+    sleep(1)
+    self.driver.find_element(By.LINK_TEXT, "Admin").click()
+    sleep(1)
+    self.driver.find_element(By.NAME, "username").click()
+    self.driver.find_element(By.NAME, "username").send_keys("AD001")
+    sleep(1)
+    self.driver.find_element(By.NAME, "userpassword").click()
+    self.driver.find_element(By.NAME, "userpassword").send_keys("111")
+    sleep(1)
+    self.driver.find_element(By.CSS_SELECTOR, ".btn").click()
+    sleep(1)
+    self.driver.find_element(By.LINK_TEXT, "Tables").click()
+    sleep(1)
+    self.driver.find_element(By.LINK_TEXT, "Student Details").click()
+    sleep(1)
+    self.driver.find_element(By.CSS_SELECTOR, ".fa-plus").click()
+    sleep(1)
+    self.driver.find_element(By.ID, "example-input-medium").click()
+    self.driver.find_element(By.ID, "example-input-medium").send_keys("Jayesh")
+    sleep(1)
+    self.driver.find_element(By.NAME, "stu_lname").click()
+    self.driver.find_element(By.NAME, "stu_lname").send_keys("Saxena")
+    sleep(1)
+    self.driver.find_element(By.ID, "example-input-small").click()
+    self.driver.find_element(By.ID, "example-input-small").send_keys("9909945678")
+    sleep(1)
+    self.driver.find_element(By.NAME, "stu_mail").click()
+    self.driver.find_element(By.NAME, "stu_mail").send_keys("example@hotmail.com")
+    sleep(1)
+    self.driver.find_element(By.NAME, "stu_number").click()
+    self.driver.find_element(By.NAME, "stu_number").send_keys("9316345034")
+    sleep(1)
+    self.driver.find_element(By.NAME, "stu_pass").click()
+    self.driver.find_element(By.NAME, "stu_pass").send_keys("student@123")
+    sleep(1)
+    self.driver.find_element(By.NAME, "stu_repass").send_keys("student@123")
+    self.driver.find_element(By.NAME, "btn_sub").click()
+    sleep(2)
+    self.driver.find_element(By.NAME, "stu_photo_u").send_keys("//home//vvdn//Downloads//aaaaa.jpeg")
+    sleep(1)
+    self.driver.find_element(By.NAME, "btn_sub").click()
+    sleep(1)
+    self.driver.quit()
